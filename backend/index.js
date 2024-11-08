@@ -12,14 +12,14 @@ const ProductRouter=require('./Routes/ProductRouter');
 const { ensureAuthenticated } = require('./Middleware/Auth');
 const cookieParser = require('cookie-parser');
 
-
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
-
-app.use(cors(corsOptions))
+const corsOptions = {
+    origin: 'http://localhost:3000', // Allow requests from your frontend origin
+    methods: 'GET,POST,PUT,DELETE', 
+    credentials: true, // Allow credentials (like cookies)
+    optionSuccessStatus: 200,
+ };
+ 
+ app.use(cors(corsOptions));
 app.use(cookieParser());
 
 
